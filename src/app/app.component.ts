@@ -1,13 +1,22 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'myAppAngular2';
+  title = 'Matias Navio';
+  list : String[] = [];
+  name = '';
+  addName(): void{
+    if(this.name.trim() !== ''){
+      this.list.push(this.name);
+      this.name = '';
+    }
+  }
 }
